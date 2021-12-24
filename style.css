@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+body {
+    --size:70vmin;
+    margin:0;
+    padding:0;
+    height:100vh;
+    overflow: hidden;
+    background: linear-gradient(#58b,#8be calc(50% + var(--size) / 3), #eee 0 ,#fff);
+}
+
+.canvas {
+    --fur:#c73;
+    --fur-light:#d84;
+    --fur-lighter:#fa7;
+    --fur-dark:#b62;
+    --fur-darker:#940;
+    width:var(--size);
+    aspect-ratio: 1;
+    /* background:#f003; */
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.canvas div,
+.canvas div::before,
+.canvas div::after {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+}
+
+.body {
+    top:45%;
+    left:50%;
+    transform: translate(-50%,0);
+    width:50%;
+    height:30%;
+    background:var(--fur);
+    border-radius:70% 0 90% 70%;
+    box-shadow: 
+     inset -1vmin -5vmin 0 -4vmin var(--fur-light);
+    overflow: hidden;
+}
+
+.body::before {
+    content:"";
+    width:30%;
+    height:100%;
+    background:var(--fur-lighter);
+    right:-10%;
+    top:30%;
+    border-radius: var(--size);
+}
+
+.head {
+    width:50%;
+    height:30%;
+    top:12%;
+    right:-5%;
+    background: 
+      radial-gradient(farthest-side, var(--fur-lighter) 90%, #0000 0) no-repeat 125% 110% / 60% 90%,
+      radial-gradient(farthest-side, #0000 90%, var(--fur-light) 0) 90% 85% / 120% 120%;
+    background-color: var(--fur);
+    border-radius: 120% / 90% 120% 110% 120%;
+    transform:rotate(20deg);
+    /* box-shadow: 
+     inset -5vmin -5vmin 0 -6vmin var(--fur-light); */
+    /* overflow: hidden; */
+}
+
+/* .head::before {
+    content:"";
+    width:60%;
+    height:80%;
+    background:var(--fur-lighter);
+    right:-15%;
+    top:15%;
+    border-radius: 100%;
+    transform: rotate(-20deg);
+} */
+
+.eye {
+    top:-16%;
+    left:14%;
+    width:14%;
+    height:36%;
+    background: 
+     radial-gradient(circle, #fff 50%, #fff0 0) no-repeat 20% 10% / 30% 30%,
+     radial-gradient(circle, #fff 20%, #fff0 0) no-repeat 50% 5% / 30% 30%,
+     radial-gradient(black 50%, #0000 0) no-repeat 20% 10% / 80% 80%;
+    background-color:white;
+    border-radius: 50%;
+    transform: rotate(-40deg);
+    box-shadow: 0 0 0 1vmin var(--fur);
+
+}
+
+.eye + .eye {
+    width:15%;
+    height:40%;
+    top:0;
+    left:0;
+}
+
+.mouth {
+    bottom:20%;
+    right:15%;
+    width:15%;
+    height:20%;
+    border:0.75vmin solid #0000;
+    border-bottom-color: #000c;
+    border-right-width: 0.125vmin;
+    border-radius: 50%;
+}
+
+.nose {
+    width:25%;
+    height:30%;
+    box-shadow: inset -0.5vmin -1vmin #0002;
+    border-radius: 50%;
+    top:20%;
+    right:10%;
+    transform: rotate(-20deg);
+    background:
+    radial-gradient(#fff3 35%, #0000 0) no-repeat 80% 0% / 50% 50%,
+    radial-gradient(#fff3 10%, #0000 0) no-repeat 110% -10% / 50% 50%
+    ;
+    background-color:#e00;
+}
+
+.ear {
+    width:30%;
+    height:30%;
+    background:var(--fur);
+    box-shadow: 
+     inset -1vmin -1vmin var(--fur-light);
+    left:-25%;
+    top:30%;
+    border-radius: 0 100%;
+    transform: rotate(-50deg);
+}
+
+.ear + .ear {
+    top:-28%;
+    left:20%;
+    transform: rotate(-60deg);
+    box-shadow: 
+     inset 1vmin -0.5vmin var(--fur-light);
+}
+
+.antler {
+    top:20%;
+    width:6%;
+    height:100%;
+    background:var(--fur-darker);
+    transform-origin: top center;
+    transform:rotate(120deg);
+    border-radius: var(--size);
+}
+
+.antler::before {
+    content: "";
+    width:100%;
+    height:30%;
+    bottom: 15%;
+    /* background: red; */
+    border-radius: var(--size);
+    background: var(--fur-darker);
+    transform-origin: top center;
+    transform: rotate(35deg);
+}
+
+.antler::after {
+    content: "";
+    width:100%;
+    height:30%;
+    bottom: 40%;
+    border-radius: var(--size);
+    background: var(--fur-darker);
+    transform-origin: top center;
+    transform: rotate(-45deg);
+}
+
+.antler + .antler {
+    transform: rotate(140deg) scaleX(-1);
+    left:15%;
+    top:10%;
+}
+
+.antler + .antler::after {
+
+}
+
+.leg {
+    width:5%;
+    height:35%;
+    background-image: linear-gradient(#0000 90%, #0004 0);
+    bottom:5%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%);
+}
+
+.leg.front {
+    background-color:var(--fur);
+    left:60%;
+}
+
+.leg.front + .leg {
+    width:6%;
+    left:25%;
+}
+
+.leg.back {
+    background-color: var(--fur-dark);
+    left:66%;
+}
+
+.leg.back + .leg {
+    width:6%;
+    left:33%;
+}
+
+.tail {
+    width:15%;
+    height:15%;
+    /* background:red; */
+    border-radius: 50%;
+    box-shadow: 
+     inset -1vmin -1vmin var(--fur-light),
+     inset -0.5vmin -3vmin var(--fur);
+    top:45%;
+    left:17%;
+    clip-path: polygon(0% 0%,75% 0%,75% 100%, 0 100%);
+}
+
+.neck {
+    width:20%;
+    height:25%;
+    background: red;
+    right:25%;
+    top:22%;
+    background: radial-gradient(20% 100% at 0 45%, #0000 50%, var(--fur) 0);
+}
+
+.shadow {
+    width:80%;
+    height:7%;
+    left:20%;
+    bottom: 2%;
+    background: #0001;
+    border-radius: 50%;
+}
+
+.collar {
+    width:22%;
+    height:20%;
+    /* background: blue; */
+    border-radius: 100% / 30%;
+    box-shadow: 
+     inset 0 -20vmin 0 -17vmin brown;
+    top:30%;
+    left:57%;
+    transform: rotate(18deg);
+}
+
+.collar::before {
+    content: "";
+    width:30%;
+    height: 32%;
+    background: gold;
+    border-radius: 50%;
+    bottom:-25%;
+    right:-5%;
+
+    background: 
+     radial-gradient(circle at 60% 50%, darkorange 15%, #0000 0),
+     linear-gradient(to right,#0000 58%, darkorange 0 65%, #0000 0) 0 100% / 100% 50%;
+     background-color: gold;
+     background-repeat: no-repeat;
+     transform: rotate(-10deg);
+}
+
+.wordsto {
+    left:-10%;
+    top:15%;
+    width:60%;
+    height:30%;
+    /* background: pink; */
+    
+}
+
+.wordsto::after{
+    content: "Merry Christmas Sarah ❤️ ";
+    top:0;
+    font-family: 'Architects Daughter',Arial, sans-serif;
+    font-weight:bold;
+    font-size:5vmin;
+    color:var(--fur-darker);
+}
+
+.wordsfrom {
+    height: 20%;
+    width: 50%;
+    background: #0000;
+    color:var(--fur);
+    transform: rotate(-8deg);
+    bottom:-20%;
+    right:-37%;
+    /* right:10%; */
+    font-family: 'Architects Daughter',Arial, sans-serif;
+    font-weight:bold;
+    font-size:3vmin;
+    white-space: pre;
+}
